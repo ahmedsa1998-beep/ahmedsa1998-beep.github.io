@@ -3,26 +3,29 @@
 main{display:flex;flex-direction:column}
 .experience{order:99}
 .case{scroll-margin-top:66px}
-.visual-grid{grid-template-columns:1.6fr 1fr;grid-template-rows:repeat(2,minmax(0,260px))}
-.visual-grid .hero-frame{grid-row:1/3;aspect-ratio:auto;height:100%}
-.visual-grid .small{aspect-ratio:auto;height:100%}
-.visual-grid .small img{object-fit:contain;padding:10px}
+.visual-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto auto}
+.visual-grid .hero-frame{grid-column:1/-1;grid-row:auto;aspect-ratio:16/7;height:auto}
+.visual-grid .small{aspect-ratio:16/9;height:auto}
+.visual-grid .small img{object-fit:contain}
+.visual-grid-four{grid-template-columns:repeat(3,1fr)}
+.visual-grid-four .hero-frame{grid-column:1/-1;aspect-ratio:16/7}
+.visual-grid-four .small{aspect-ratio:4/3}
+.visual-grid-hand .hero-frame{aspect-ratio:16/9}
 
 .jewellery-grid{display:grid;grid-template-columns:1.25fr .64fr .64fr;grid-template-rows:repeat(2,minmax(0,268px));gap:16px}
 .jewellery-card{min-width:0;border:1px solid #ddd;border-radius:12px;background:#fff;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.035);transition:transform .3s ease,box-shadow .3s ease}
 .jewellery-card:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(0,0,0,.08)}
 .jewellery-feature{grid-row:1/3;display:grid;grid-template-rows:minmax(0,1fr) auto}
-.jewellery-media{height:154px;overflow:hidden;background:#f3f3f3}
+.jewellery-media{height:154px;overflow:hidden;background:#fff}
 .jewellery-feature .jewellery-media{height:auto;min-height:0}
-.jewellery-media img{width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
-.jewellery-card:hover .jewellery-media img{transform:scale(1.03)}
+.jewellery-media img{width:100%;height:100%;object-fit:contain}
 .jewellery-copy{padding:14px 16px 16px}
 .jewellery-copy h3{font-size:.96rem;margin:0 0 6px;color:#111}
 .jewellery-copy p{font-size:.76rem;line-height:1.5;color:#666}
 .project-archive{display:grid;grid-template-columns:1fr 1fr;gap:42px;align-items:start}
 .legsgo-feature{border:1px solid #ddd;border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 4px 20px rgba(0,0,0,.04)}
 .legsgo-media{aspect-ratio:16/10;overflow:hidden;background:#e99a00}
-.legsgo-media img{width:100%;height:100%;object-fit:cover}
+.legsgo-media img{width:100%;height:100%;object-fit:contain}
 .legsgo-copy{padding:22px 24px 25px}
 .legsgo-copy h3{font-size:1.55rem;margin:7px 0 9px}
 .legsgo-copy p{font-size:.88rem;line-height:1.62}
@@ -38,6 +41,7 @@ main{display:flex;flex-direction:column}
   .visual-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}
   .visual-grid .hero-frame{grid-column:1/-1;grid-row:auto;aspect-ratio:16/9;height:auto}
   .visual-grid .small{aspect-ratio:4/3;height:auto}
+  .visual-grid-hand .hero-frame{aspect-ratio:16/9}
   .jewellery-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}
   .jewellery-feature{grid-column:1/-1;grid-row:auto}
   .jewellery-feature .jewellery-media{height:360px}
