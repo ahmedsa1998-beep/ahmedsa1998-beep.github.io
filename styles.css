@@ -55,3 +55,42 @@ main{display:flex;flex-direction:column}
   .jewellery-feature{grid-column:auto}
   .jewellery-feature .jewellery-media,.jewellery-media{height:240px}
 }
+
+/* --- presentation frames added with the image pass --------------------- */
+/* a wide lead image beside a portrait companion, both at one height */
+.duo{display:grid;grid-template-columns:1.52fr 1fr;gap:8px}
+.duo .visual{height:clamp(300px,33vw,500px)}
+.duo .visual.fill img{object-fit:cover}
+.duo .visual.contain img{object-fit:contain}
+
+/* one image, shown as large as the page sensibly allows */
+.solo{display:flex;justify-content:center;background:#fff}
+.solo .visual{width:100%;height:clamp(400px,54vw,660px)}
+.solo .visual img{object-fit:contain}
+
+@media(max-width:900px){
+  .duo{grid-template-columns:1.35fr 1fr}
+  .duo .visual{height:clamp(230px,34vw,360px)}
+  .solo .visual{height:clamp(320px,56vw,480px)}
+}
+@media(max-width:600px){
+  .duo{grid-template-columns:1fr}
+  .duo .visual{height:auto;aspect-ratio:16/10}
+  .duo .visual.contain{aspect-ratio:4/5}
+  .solo .visual{height:auto;aspect-ratio:4/5}
+}
+
+/* frames follow the shape of the image they hold (--sar / --har are written
+   per element from the real asset dimensions) */
+.visual-grid .small,.split-visual .visual,.triple .visual,
+.named-card .visual{aspect-ratio:var(--sar,16/9)}
+.visual-grid .hero-frame{aspect-ratio:var(--har,16/7)}
+
+/* a single image reads as a deliberate plate rather than floating in white */
+.solo{background:var(--soft,#F2F2F0);padding:clamp(16px,2.6vw,40px) 0}
+.solo .visual{background:transparent;height:clamp(400px,52vw,640px)}
+@media(max-width:600px){.solo .visual{height:auto;aspect-ratio:4/5}}
+
+/* capped slots stay centred in their grid cell */
+.visual-grid,.triple,.split-visual,.named-projects{justify-items:center}
+.visual-grid>*,.triple>*,.split-visual>*,.named-projects>*{width:100%}
